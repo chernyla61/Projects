@@ -30,13 +30,7 @@ function showLogin() {
     
     var w2Layout = w2ui['layout'];
 
-    w2Layout.hide('top');
-    w2Layout.hide('bottom');
-    w2Layout.hide('left');
-    w2Layout.hide('right');
-    w2Layout.hide('preview');
-    w2Layout.show('main');
-
+ 
     w2Layout.load('main', 'part.login.html', '', function () {
 
         var $frmLogin = $('#form-login').w2form({
@@ -53,6 +47,8 @@ function showLogin() {
                     this.clear();
                 },
                 save: function (target, data) {
+                    if (this.validate())
+                        return;
                     this.request(function (data) {
                         console.log(data);
                     });
