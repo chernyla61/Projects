@@ -9,7 +9,7 @@ function doOnLoad() {
     $('#layout').w2layout({
         name: 'layout',
         panels: [
-            { type: 'top', size: 50, resizable: false, hidden: true, content: 'top' },
+            { type: 'top', size: 50, resizable: false, hidden: false, content: '<button class="w2ui-btn" name="login" onclick="loadLogin()">Login</button>' },
             { type: 'left', size: 200, resizable: true, hidden: true, content: 'left' },
             { type: 'main', content: 'main' },
             { type: 'preview', size: '50%', resizable: true, hidden: true, content: 'preview' },
@@ -39,7 +39,6 @@ function loadLogin() {
 function initLogin() {
 
     window.setTimeout(function () {
-
         var $frm = $('#form-login').w2form({
             name: 'form-login',
             //recid: window.user.id,
