@@ -3,10 +3,11 @@ drop table if exists trip cascade;
 drop table if exists team cascade;
 
 create table person(
-	 id serial primary key
+	id serial primary key
+	,email varchar(50)
+	,pwd varchar(10)	
 	,lname varchar(50)
 	,fname varchar(50)
-	,pwd varchar(10)
 	,imgurl text
 );
 
