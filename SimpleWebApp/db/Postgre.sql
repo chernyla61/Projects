@@ -23,8 +23,7 @@ create table trip(
 );
 
 create table team(
-	id serial primary key
-	,trip_id int references trip(id)
+	trip_id int references trip(id)
 	,person_id int references person(id)
 )
 
