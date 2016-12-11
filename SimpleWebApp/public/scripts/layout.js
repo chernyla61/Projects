@@ -4,7 +4,7 @@
 
 function doOnLoad() {
 
-    window.user = { id: ''}
+    window.user = { id: '' }
 
     $('#layout').w2layout({
         name: 'layout',
@@ -18,22 +18,29 @@ function doOnLoad() {
         ]
     });
 
-    //w2ui['layout'].toggle('top', window.instant);
-    //w2ui['layout'].toggle('bottom', window.instant);
+    window.w2Layout = w2ui['layout'];
+
+    
+    
+    
+
 
     if (!window.user.id) {
-        showLogin();
+        loadLogin();
+        
     }
 }
 
-function showLogin() {
-    
-    var w2Layout = w2ui['layout'];
 
- 
-    w2Layout.load('main', 'part.login.html', '', function () {
+function loadLogin() {
+    w2Layout.load('main', 'part.login.html', '', initLogin);
+}
 
-        var $frmLogin = $('#form-login').w2form({
+function initLogin() {
+
+    window.setTimeout(function () {
+
+        var $frm = $('#form-login').w2form({
             name: 'form-login',
             //recid: window.user.id,
             url: '/public/mocks/login-success.json',
@@ -43,9 +50,49 @@ function showLogin() {
             ],
 
             actions: {
-                reset: function (target,data) {
-                    this.clear();
+                signup: function (target, data) {
+                    loadSignUp();
                 },
+                login: function (target, data) {
+                    if (this.validate())
+                        return;
+                    this.request(function (data) {
+                        console.log(data);
+                    }
+                  );
+                }
+            }
+
+        });
+
+        $('#form-login').fadeIn(1000);
+
+
+    }, 100);
+
+}
+
+
+function loadSignUp() {
+    w2Layout.load('main', 'part.signup.html', '', initSignUp);
+}
+
+function initSignUp() {
+
+    window.setTimeout(function () {
+
+        var $frm = $('#form-signup').w2form({
+            name: 'form-signup',
+            //recid: window.user.id,
+            url: '/public/mocks/login-success.json',
+            fields: [
+                { field: 'email', type: 'email', required: true },
+                { field: 'pwd', type: 'password', required: true },
+                { field: 'fname', type: 'text', required: true },
+                { field: 'lname', type: 'text', required: true }
+             ],
+
+            actions: {
                 save: function (target, data) {
                     if (this.validate())
                         return;
@@ -57,12 +104,9 @@ function showLogin() {
 
         });
 
-        $('#form-login').fadeIn(1000);
-    });
+        initImageUpload();
 
-    
+        $('#form-signup').fadeIn(1000);
 
-
-    
-
+    }, 100);
 }
