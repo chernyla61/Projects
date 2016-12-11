@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="db\Postgre.sql" />
     <Content Include="packages.config" />
     <Content Include="public\html\part.signup.html" />
     <Content Include="public\mocks\login-success.json" />
