@@ -94,10 +94,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="db\Postgre.sql" />
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="public\html\part.signup.html" />
     <Content Include="public\mocks\login-success.json" />
     <Content Include="public\mocks\login-error.json" />
     <None Include="Web.Debug.config">
@@ -126,6 +125,7 @@
     <Content Include="public\images\favicon_101626\animated_favicon1.gif" />
     <Content Include="public\images\favicon_101626\favicon.ico" />
     <Content Include="public\images\favicon_101626\ReadMe.txt" />
+    <Content Include="public\scripts\image-upload.js" />
     <Content Include="public\scripts\layout.js" />
     <Content Include="scripts\dropzone.js" />
     <Content Include="scripts\ImageUplaodTest.js" />

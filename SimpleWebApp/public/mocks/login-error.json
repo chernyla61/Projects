@@ -1,4 +1,4 @@
 ﻿{
   "status": "error",
-  "message": "Mock Error Message"
+  "message": "Mock Error: Login is not valid. Would you like to signe up?"
 }
